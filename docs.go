@@ -152,10 +152,109 @@ var doc = `{
                 "parameters": [
                     {
                         "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
                         "description": "ID for page",
                         "name": "id",
                         "in": "query",
                         "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Page"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Page"
+                ],
+                "summary": "Updates a page by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID for page",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Page"
+                ],
+                "summary": "Creates a page",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID for page",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "absolute_url",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "active",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "created",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "title",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "updated",
+                        "in": "formData"
                     }
                 ],
                 "responses": {
@@ -195,6 +294,29 @@ var doc = `{
         }
     },
     "definitions": {
+        "model.Page": {
+            "type": "object",
+            "properties": {
+                "absolute_url": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "created": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "updated": {
+                    "type": "string"
+                }
+            }
+        },
         "model.SignInResponse": {
             "type": "object",
             "properties": {
