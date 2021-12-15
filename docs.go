@@ -32,9 +32,8 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/signup": {
+        "/signin": {
             "post": {
-                "description": "Validates and signes a user up to the system",
                 "consumes": [
                     "application/json"
                 ],
@@ -42,43 +41,165 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "signup"
+                    "account"
                 ],
-                "summary": "Creates an account",
+                "summary": "Sign Into Account",
                 "parameters": [
                     {
                         "type": "string",
-                        "name": "account_name",
-                        "in": "query"
+                        "name": "email",
+                        "in": "formData",
+                        "required": true
                     },
                     {
-                        "type": "string",
-                        "name": "email",
-                        "in": "query",
-                        "required": true
+                        "type": "boolean",
+                        "name": "email_validated",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "fk_account_id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "formData"
                     },
                     {
                         "type": "string",
                         "name": "password",
-                        "in": "query",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "name": "passwordconfirm",
-                        "in": "query",
+                        "in": "formData",
                         "required": true
                     },
                     {
                         "type": "boolean",
                         "name": "temp",
-                        "in": "query"
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.SignInResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/signup": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "account"
+                ],
+                "summary": "Creates an account on the service",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "account_name",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "email",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "password",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "passwordconfirm",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "temp",
+                        "in": "formData"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": ""
                     }
+                }
+            }
+        },
+        "/v1/page/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Page"
+                ],
+                "summary": "Returns a page by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID for page",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/signup/{uid}": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "verify"
+                ],
+                "summary": "Verifies an email with a UID sent to the account email",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "uid from email",
+                        "name": "uid",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "model.SignInResponse": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
                 }
             }
         }

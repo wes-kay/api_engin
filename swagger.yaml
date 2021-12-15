@@ -1,4 +1,10 @@
 basePath: /v1
+definitions:
+  model.SignInResponse:
+    properties:
+      token:
+        type: string
+    type: object
 host: api.engin.app
 info:
   contact:
@@ -13,28 +19,62 @@ info:
   title: Swagger Example API
   version: "1.0"
 paths:
+  /signin:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - in: formData
+        name: email
+        required: true
+        type: string
+      - in: formData
+        name: email_validated
+        type: boolean
+      - in: formData
+        name: fk_account_id
+        type: integer
+      - in: formData
+        name: id
+        type: integer
+      - in: formData
+        name: password
+        required: true
+        type: string
+      - in: formData
+        name: temp
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.SignInResponse'
+      summary: Sign Into Account
+      tags:
+      - account
   /signup:
     post:
       consumes:
       - application/json
-      description: Validates and signes a user up to the system
       parameters:
-      - in: query
+      - in: formData
         name: account_name
         type: string
-      - in: query
+      - in: formData
         name: email
         required: true
         type: string
-      - in: query
+      - in: formData
         name: password
         required: true
         type: string
-      - in: query
+      - in: formData
         name: passwordconfirm
         required: true
         type: string
-      - in: query
+      - in: formData
         name: temp
         type: boolean
       produces:
@@ -42,7 +82,43 @@ paths:
       responses:
         "200":
           description: ""
-      summary: Creates an account
+      summary: Creates an account on the service
       tags:
-      - signup
+      - account
+  /v1/page/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: ID for page
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Returns a page by ID
+      tags:
+      - Page
+  /v1/signup/{uid}:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: uid from email
+        in: query
+        name: uid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Verifies an email with a UID sent to the account email
+      tags:
+      - verify
 swagger: "2.0"
