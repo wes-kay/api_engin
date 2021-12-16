@@ -421,7 +421,7 @@ paths:
         name: Authentication
         required: true
         type: string
-      - description: ID for page
+      - description: Media ID
         in: query
         name: id
         required: true

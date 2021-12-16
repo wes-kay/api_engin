@@ -549,7 +549,7 @@ var doc = `{
                     },
                     {
                         "type": "string",
-                        "description": "ID for page",
+                        "description": "Media ID",
                         "name": "id",
                         "in": "query",
                         "required": true
