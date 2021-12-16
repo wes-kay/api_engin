@@ -43,6 +43,19 @@ definitions:
       updated:
         type: string
     type: object
+  model.Project:
+    properties:
+      created:
+        type: string
+      id:
+        type: integer
+      title:
+        type: string
+      type:
+        type: integer
+      updated:
+        type: string
+    type: object
   model.SignInResponse:
     properties:
       token:
@@ -96,7 +109,7 @@ paths:
             $ref: '#/definitions/model.SignInResponse'
       summary: Sign Into Account
       tags:
-      - account
+      - Account
   /signup:
     post:
       consumes:
@@ -127,8 +140,30 @@ paths:
           description: ""
       summary: Creates an account on the service
       tags:
-      - account
+      - Account
   /v1/content/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - description: ID for page
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Deletes content by ID
+      tags:
+      - Content
     get:
       consumes:
       - application/json
@@ -189,12 +224,49 @@ paths:
         name: id
         required: true
         type: string
+      - in: formData
+        name: account_id
+        type: integer
+      - in: formData
+        name: active
+        type: boolean
+      - in: formData
+        name: anchor
+        type: string
+      - description: 1,073,741,824
+        in: formData
+        name: content
+        type: string
+      - in: formData
+        name: copywrite
+        type: string
+      - in: formData
+        name: created
+        type: string
+      - in: formData
+        name: draft
+        type: boolean
+      - in: formData
+        name: id
+        type: integer
+      - in: formData
+        name: page_id
+        type: integer
+      - in: formData
+        name: title
+        type: string
+      - in: formData
+        name: updated
+        type: string
+      - in: formData
+        name: weight
+        type: integer
       produces:
       - application/json
       responses:
         "200":
           description: ""
-      summary: Deletes content by ID
+      summary: Updates content by ID
       tags:
       - Content
   /v1/page/{id}:
@@ -351,6 +423,115 @@ paths:
       summary: Gets all pages from ID
       tags:
       - Page
+  /v1/project/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - description: ID for project
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Deletes a Project by ID
+      tags:
+      - Project
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Project'
+      summary: Gets project by ID
+      tags:
+      - Project
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - in: formData
+        name: account_id
+        type: integer
+      - in: formData
+        name: title
+        type: string
+      - in: formData
+        name: type
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Creates a project
+      tags:
+      - Project
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - description: ID for project
+        in: query
+        name: id
+        required: true
+        type: string
+      - in: formData
+        name: account_id
+        type: integer
+      - in: formData
+        name: title
+        type: string
+      - in: formData
+        name: type
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Updates a product by ID
+      tags:
+      - Page
+  /v1/projects/{id}:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Project'
+            type: array
+      summary: Gets projects by account ID
+      tags:
+      - Project
   /v1/signup/{uid}:
     post:
       consumes:
