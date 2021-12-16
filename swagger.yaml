@@ -159,7 +159,7 @@ paths:
             items:
               $ref: '#/definitions/model.Page'
             type: array
-      summary: Gets all pages from ID
+      summary: Gets all pages from Account ID
       tags:
       - Page
   /v1/account/{id}/projects:
@@ -551,7 +551,7 @@ paths:
           description: ""
       summary: Updates a product by ID
       tags:
-      - Page
+      - Project
   /v1/project/{id}/pages:
     get:
       consumes:

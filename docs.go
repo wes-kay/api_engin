@@ -142,7 +142,7 @@ var doc = `{
                 "tags": [
                     "Page"
                 ],
-                "summary": "Gets all pages from ID",
+                "summary": "Gets all pages from Account ID",
                 "parameters": [
                     {
                         "type": "string",
@@ -653,7 +653,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "Page"
+                    "Project"
                 ],
                 "summary": "Updates a product by ID",
                 "parameters": [
