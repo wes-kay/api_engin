@@ -191,6 +191,54 @@ paths:
         name: id
         required: true
         type: string
+      - in: formData
+        name: created
+        type: string
+      - in: formData
+        name: fk_account_id
+        type: integer
+      - in: formData
+        name: fk_media_wrapper_id
+        type: integer
+      - in: formData
+        name: fk_record_id
+        type: integer
+      - in: formData
+        name: id
+        type: integer
+      - in: formData
+        name: source
+        type: string
+      - in: formData
+        name: type
+        type: integer
+      - in: formData
+        name: updated
+        type: string
+      - in: formData
+        name: alt_text
+        type: string
+      - in: formData
+        name: copywrite
+        type: string
+      - in: formData
+        name: created
+        type: string
+      - in: formData
+        name: id
+        type: integer
+      - in: formData
+        name: subtitle
+        type: string
+      - in: formData
+        name: title
+        type: string
+      - in: formData
+        name: updated
+        type: string
+      - in: formData
+        name: weight
+        type: integer
       produces:
       - application/json
       responses:

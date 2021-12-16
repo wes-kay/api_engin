@@ -142,6 +142,86 @@
                         "name": "id",
                         "in": "query",
                         "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "created",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "fk_account_id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "fk_media_wrapper_id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "fk_record_id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "source",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "type",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "updated",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "alt_text",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "copywrite",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "created",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "subtitle",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "title",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "updated",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "weight",
+                        "in": "formData"
                     }
                 ],
                 "responses": {
