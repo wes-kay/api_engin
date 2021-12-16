@@ -2,8 +2,6 @@ basePath: /v1
 definitions:
   model.Content:
     properties:
-      account_id:
-        type: integer
       active:
         type: boolean
       anchor:
@@ -17,9 +15,11 @@ definitions:
         type: string
       draft:
         type: boolean
-      id:
+      fk_account_id:
         type: integer
-      page_id:
+      fk_page_id:
+        type: integer
+      id:
         type: integer
       title:
         type: string
@@ -35,6 +35,8 @@ definitions:
       fk_account_id:
         type: integer
       fk_media_wrapper_id:
+        type: integer
+      fk_project_id:
         type: integer
       fk_record_id:
         type: integer
@@ -196,6 +198,9 @@ paths:
         required: true
         type: integer
       - in: formData
+        name: fk_project_id
+        type: integer
+      - in: formData
         name: fk_record_id
         type: integer
       - in: formData
@@ -345,9 +350,6 @@ paths:
         required: true
         type: string
       - in: formData
-        name: account_id
-        type: integer
-      - in: formData
         name: active
         type: boolean
       - in: formData
@@ -367,10 +369,13 @@ paths:
         name: draft
         type: boolean
       - in: formData
-        name: id
+        name: fk_account_id
         type: integer
       - in: formData
-        name: page_id
+        name: fk_page_id
+        type: integer
+      - in: formData
+        name: id
         type: integer
       - in: formData
         name: title
@@ -404,9 +409,6 @@ paths:
         required: true
         type: string
       - in: formData
-        name: account_id
-        type: integer
-      - in: formData
         name: active
         type: boolean
       - in: formData
@@ -426,10 +428,13 @@ paths:
         name: draft
         type: boolean
       - in: formData
-        name: id
+        name: fk_account_id
         type: integer
       - in: formData
-        name: page_id
+        name: fk_page_id
+        type: integer
+      - in: formData
+        name: id
         type: integer
       - in: formData
         name: title

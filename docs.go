@@ -166,6 +166,11 @@ var doc = `{
                     },
                     {
                         "type": "integer",
+                        "name": "fk_project_id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
                         "name": "fk_record_id",
                         "in": "formData"
                     },
@@ -393,11 +398,6 @@ var doc = `{
                         "required": true
                     },
                     {
-                        "type": "integer",
-                        "name": "account_id",
-                        "in": "formData"
-                    },
-                    {
                         "type": "boolean",
                         "name": "active",
                         "in": "formData"
@@ -430,12 +430,17 @@ var doc = `{
                     },
                     {
                         "type": "integer",
-                        "name": "id",
+                        "name": "fk_account_id",
                         "in": "formData"
                     },
                     {
                         "type": "integer",
-                        "name": "page_id",
+                        "name": "fk_page_id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "id",
                         "in": "formData"
                     },
                     {
@@ -487,11 +492,6 @@ var doc = `{
                         "required": true
                     },
                     {
-                        "type": "integer",
-                        "name": "account_id",
-                        "in": "formData"
-                    },
-                    {
                         "type": "boolean",
                         "name": "active",
                         "in": "formData"
@@ -524,12 +524,17 @@ var doc = `{
                     },
                     {
                         "type": "integer",
-                        "name": "id",
+                        "name": "fk_account_id",
                         "in": "formData"
                     },
                     {
                         "type": "integer",
-                        "name": "page_id",
+                        "name": "fk_page_id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "id",
                         "in": "formData"
                     },
                     {
@@ -1116,9 +1121,6 @@ var doc = `{
         "model.Content": {
             "type": "object",
             "properties": {
-                "account_id": {
-                    "type": "integer"
-                },
                 "active": {
                     "type": "boolean"
                 },
@@ -1138,10 +1140,13 @@ var doc = `{
                 "draft": {
                     "type": "boolean"
                 },
-                "id": {
+                "fk_account_id": {
                     "type": "integer"
                 },
-                "page_id": {
+                "fk_page_id": {
+                    "type": "integer"
+                },
+                "id": {
                     "type": "integer"
                 },
                 "title": {
@@ -1165,6 +1170,9 @@ var doc = `{
                     "type": "integer"
                 },
                 "fk_media_wrapper_id": {
+                    "type": "integer"
+                },
+                "fk_project_id": {
                     "type": "integer"
                 },
                 "fk_record_id": {
