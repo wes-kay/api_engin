@@ -61,18 +61,12 @@ definitions:
       token:
         type: string
     type: object
-host: api.engin.app
+host: api.engin
 info:
   contact:
-    email: support@swagger.io
+    email: io.labs.development@gmail.com
     name: API Support
-    url: http://www.swagger.io/support
-  description: This is a sample server Petstore server.
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  termsOfService: http://swagger.io/terms/
-  title: Swagger Example API
+  title: Engin
   version: "1.0"
 paths:
   /signin:
@@ -449,6 +443,17 @@ paths:
     get:
       consumes:
       - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - description: ID for project
+        in: query
+        name: id
+        required: true
+        type: string
       produces:
       - application/json
       responses:
@@ -473,9 +478,11 @@ paths:
         type: integer
       - in: formData
         name: title
+        required: true
         type: string
       - in: formData
         name: type
+        required: true
         type: integer
       produces:
       - application/json
@@ -504,9 +511,11 @@ paths:
         type: integer
       - in: formData
         name: title
+        required: true
         type: string
       - in: formData
         name: type
+        required: true
         type: integer
       produces:
       - application/json
@@ -520,6 +529,17 @@ paths:
     get:
       consumes:
       - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - description: ID for project
+        in: query
+        name: id
+        required: true
+        type: string
       produces:
       - application/json
       responses:

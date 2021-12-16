@@ -1,21 +1,14 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "This is a sample server Petstore server.",
-        "title": "Swagger Example API",
-        "termsOfService": "http://swagger.io/terms/",
+        "title": "Engin",
         "contact": {
             "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "support@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+            "email": "io.labs.development@gmail.com"
         },
         "version": "1.0"
     },
-    "host": "api.engin.app",
+    "host": "api.engin",
     "basePath": "/v1",
     "paths": {
         "/signin": {
@@ -571,6 +564,22 @@
                     "Project"
                 ],
                 "summary": "Gets project by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID for project",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -614,12 +623,14 @@
                     {
                         "type": "string",
                         "name": "title",
-                        "in": "formData"
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "integer",
                         "name": "type",
-                        "in": "formData"
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -655,12 +666,14 @@
                     {
                         "type": "string",
                         "name": "title",
-                        "in": "formData"
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "integer",
                         "name": "type",
-                        "in": "formData"
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -715,6 +728,22 @@
                     "Project"
                 ],
                 "summary": "Gets projects by account ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID for project",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",

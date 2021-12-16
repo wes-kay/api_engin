@@ -17,15 +17,9 @@ var doc = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
-        "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "support@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+            "email": "io.labs.development@gmail.com"
         },
         "version": "{{.Version}}"
     },
@@ -585,6 +579,22 @@ var doc = `{
                     "Project"
                 ],
                 "summary": "Gets project by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID for project",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -628,12 +638,14 @@ var doc = `{
                     {
                         "type": "string",
                         "name": "title",
-                        "in": "formData"
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "integer",
                         "name": "type",
-                        "in": "formData"
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -669,12 +681,14 @@ var doc = `{
                     {
                         "type": "string",
                         "name": "title",
-                        "in": "formData"
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "integer",
                         "name": "type",
-                        "in": "formData"
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -729,6 +743,22 @@ var doc = `{
                     "Project"
                 ],
                 "summary": "Gets projects by account ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID for project",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -880,11 +910,11 @@ type swaggerInfo struct {
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
 	Version:     "1.0",
-	Host:        "api.engin.app",
+	Host:        "api.engin",
 	BasePath:    "/v1",
 	Schemes:     []string{},
-	Title:       "Swagger Example API",
-	Description: "This is a sample server Petstore server.",
+	Title:       "Engin",
+	Description: "",
 }
 
 type s struct{}
