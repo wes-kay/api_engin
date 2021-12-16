@@ -344,6 +344,43 @@ paths:
         name: id
         required: true
         type: string
+      - in: formData
+        name: account_id
+        type: integer
+      - in: formData
+        name: active
+        type: boolean
+      - in: formData
+        name: anchor
+        type: string
+      - description: 1,073,741,824
+        in: formData
+        name: content
+        type: string
+      - in: formData
+        name: copywrite
+        type: string
+      - in: formData
+        name: created
+        type: string
+      - in: formData
+        name: draft
+        type: boolean
+      - in: formData
+        name: id
+        type: integer
+      - in: formData
+        name: page_id
+        type: integer
+      - in: formData
+        name: title
+        type: string
+      - in: formData
+        name: updated
+        type: string
+      - in: formData
+        name: weight
+        type: integer
       produces:
       - application/json
       responses:
