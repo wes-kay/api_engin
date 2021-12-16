@@ -159,19 +159,10 @@ var doc = `{
                         "required": true
                     },
                     {
-                        "type": "string",
-                        "name": "created",
-                        "in": "formData"
-                    },
-                    {
                         "type": "integer",
-                        "name": "fk_account_id",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "integer",
-                        "name": "fk_media_wrapper_id",
-                        "in": "formData"
+                        "name": "fk_media_id",
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "integer",
@@ -179,24 +170,16 @@ var doc = `{
                         "in": "formData"
                     },
                     {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "formData"
-                    },
-                    {
                         "type": "string",
                         "name": "source",
-                        "in": "formData"
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "integer",
                         "name": "type",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "name": "updated",
-                        "in": "formData"
+                        "in": "formData",
+                        "required": true
                     },
                     {
                         "type": "string",
@@ -210,27 +193,12 @@ var doc = `{
                     },
                     {
                         "type": "string",
-                        "name": "created",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
                         "name": "subtitle",
                         "in": "formData"
                     },
                     {
                         "type": "string",
                         "name": "title",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "name": "updated",
                         "in": "formData"
                     },
                     {
