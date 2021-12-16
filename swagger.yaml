@@ -364,46 +364,6 @@ paths:
       summary: Returns a page by ID
       tags:
       - Page
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: Authentication header as token
-        in: header
-        name: Authentication
-        required: true
-        type: string
-      - description: ID for page
-        in: query
-        name: id
-        required: true
-        type: string
-      - in: formData
-        name: absolute_url
-        type: string
-      - in: formData
-        name: active
-        type: boolean
-      - in: formData
-        name: created
-        type: string
-      - in: formData
-        name: id
-        type: integer
-      - in: formData
-        name: title
-        type: string
-      - in: formData
-        name: updated
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: ""
-      summary: Creates a page
-      tags:
-      - Page
     put:
       consumes:
       - application/json
@@ -501,9 +461,6 @@ paths:
         required: true
         type: string
       - in: formData
-        name: id
-        type: integer
-      - in: formData
         name: title
         required: true
         type: string
@@ -534,9 +491,6 @@ paths:
         required: true
         type: string
       - in: formData
-        name: id
-        type: integer
-      - in: formData
         name: title
         required: true
         type: string
@@ -552,6 +506,47 @@ paths:
       summary: Updates a product by ID
       tags:
       - Project
+  /v1/project/{id}/page:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - description: ID for page
+        in: query
+        name: id
+        required: true
+        type: string
+      - in: formData
+        name: absolute_url
+        type: string
+      - in: formData
+        name: active
+        type: boolean
+      - in: formData
+        name: created
+        type: string
+      - in: formData
+        name: id
+        type: integer
+      - in: formData
+        name: title
+        type: string
+      - in: formData
+        name: updated
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Creates a page
+      tags:
+      - Page
   /v1/project/{id}/pages:
     get:
       consumes:

@@ -511,69 +511,6 @@ var doc = `{
                     }
                 }
             },
-            "post": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Page"
-                ],
-                "summary": "Creates a page",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Authentication header as token",
-                        "name": "Authentication",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "ID for page",
-                        "name": "id",
-                        "in": "query",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "name": "absolute_url",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "boolean",
-                        "name": "active",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "name": "created",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "name": "title",
-                        "in": "formData"
-                    },
-                    {
-                        "type": "string",
-                        "name": "updated",
-                        "in": "formData"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": ""
-                    }
-                }
-            },
             "delete": {
                 "consumes": [
                     "application/json"
@@ -672,11 +609,6 @@ var doc = `{
                         "required": true
                     },
                     {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "formData"
-                    },
-                    {
                         "type": "string",
                         "name": "title",
                         "in": "formData",
@@ -713,11 +645,6 @@ var doc = `{
                         "name": "Authentication",
                         "in": "header",
                         "required": true
-                    },
-                    {
-                        "type": "integer",
-                        "name": "id",
-                        "in": "formData"
                     },
                     {
                         "type": "string",
@@ -763,6 +690,71 @@ var doc = `{
                         "name": "id",
                         "in": "query",
                         "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/project/{id}/page": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Page"
+                ],
+                "summary": "Creates a page",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID for page",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "absolute_url",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "boolean",
+                        "name": "active",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "created",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "id",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "title",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "name": "updated",
+                        "in": "formData"
                     }
                 ],
                 "responses": {
