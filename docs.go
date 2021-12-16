@@ -131,6 +131,74 @@ var doc = `{
                 }
             }
         },
+        "/v1/Media/{id}": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Media"
+                ],
+                "summary": "Creates Media",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID for Media account",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Media"
+                ],
+                "summary": "Deletes Media by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID for page",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
         "/v1/account/{id}/pages": {
             "get": {
                 "consumes": [
@@ -407,6 +475,44 @@ var doc = `{
                 "responses": {
                     "200": {
                         "description": ""
+                    }
+                }
+            }
+        },
+        "/v1/media/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Media"
+                ],
+                "summary": "Gets media by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID for page",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/model.Media"
+                        }
                     }
                 }
             }
@@ -773,7 +879,7 @@ var doc = `{
                 "tags": [
                     "Page"
                 ],
-                "summary": "Creates a page",
+                "summary": "Creates a page and inserts into project",
                 "parameters": [
                     {
                         "type": "string",
@@ -937,6 +1043,35 @@ var doc = `{
                 },
                 "weight": {
                     "type": "integer"
+                }
+            }
+        },
+        "model.Media": {
+            "type": "object",
+            "properties": {
+                "created": {
+                    "type": "string"
+                },
+                "fk_account_id": {
+                    "type": "integer"
+                },
+                "fk_media_wrapper_id": {
+                    "type": "integer"
+                },
+                "fk_record_id": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                },
+                "updated": {
+                    "type": "string"
                 }
             }
         },

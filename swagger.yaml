@@ -28,6 +28,25 @@ definitions:
       weight:
         type: integer
     type: object
+  model.Media:
+    properties:
+      created:
+        type: string
+      fk_account_id:
+        type: integer
+      fk_media_wrapper_id:
+        type: integer
+      fk_record_id:
+        type: integer
+      id:
+        type: integer
+      source:
+        type: string
+      type:
+        type: integer
+      updated:
+        type: string
+    type: object
   model.Page:
     properties:
       absolute_url:
@@ -135,6 +154,51 @@ paths:
       summary: Creates an account on the service
       tags:
       - Account
+  /v1/Media/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - description: ID for page
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Deletes Media by ID
+      tags:
+      - Media
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - description: ID for Media account
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Creates Media
+      tags:
+      - Media
   /v1/account/{id}/pages:
     get:
       consumes:
@@ -317,6 +381,31 @@ paths:
       summary: Updates content by ID
       tags:
       - Content
+  /v1/media/{id}:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - description: ID for page
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.Media'
+      summary: Gets media by ID
+      tags:
+      - Media
   /v1/page/{id}:
     delete:
       consumes:
@@ -584,7 +673,7 @@ paths:
       responses:
         "200":
           description: ""
-      summary: Creates a page
+      summary: Creates a page and inserts into project
       tags:
       - Page
   /v1/project/{id}/pages:
