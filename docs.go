@@ -131,6 +131,88 @@ var doc = `{
                 }
             }
         },
+        "/v1/account/{id}/pages": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Page"
+                ],
+                "summary": "Gets all pages from ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID for page",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/model.Page"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/account/{id}/projects": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Gets projects by account ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header as token",
+                        "name": "Authentication",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "ID for project",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/model.Project"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/v1/content/{id}": {
             "get": {
                 "consumes": [
@@ -526,47 +608,6 @@ var doc = `{
                 }
             }
         },
-        "/v1/pages/{id}": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Page"
-                ],
-                "summary": "Gets all pages from ID",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Authentication header as token",
-                        "name": "Authentication",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "ID for page",
-                        "name": "id",
-                        "in": "query",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/model.Page"
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/v1/project/{id}": {
             "get": {
                 "consumes": [
@@ -727,47 +768,6 @@ var doc = `{
                 "responses": {
                     "200": {
                         "description": ""
-                    }
-                }
-            }
-        },
-        "/v1/projects/{id}": {
-            "get": {
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Project"
-                ],
-                "summary": "Gets projects by account ID",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "Authentication header as token",
-                        "name": "Authentication",
-                        "in": "header",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "ID for project",
-                        "name": "id",
-                        "in": "query",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/model.Project"
-                            }
-                        }
                     }
                 }
             }

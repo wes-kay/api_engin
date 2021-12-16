@@ -135,6 +135,60 @@ paths:
       summary: Creates an account on the service
       tags:
       - Account
+  /v1/account/{id}/pages:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - description: ID for page
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Page'
+            type: array
+      summary: Gets all pages from ID
+      tags:
+      - Page
+  /v1/account/{id}/projects:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Authentication header as token
+        in: header
+        name: Authentication
+        required: true
+        type: string
+      - description: ID for project
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Project'
+            type: array
+      summary: Gets projects by account ID
+      tags:
+      - Project
   /v1/content/{id}:
     delete:
       consumes:
@@ -390,33 +444,6 @@ paths:
       summary: Updates a page by ID
       tags:
       - Page
-  /v1/pages/{id}:
-    get:
-      consumes:
-      - application/json
-      parameters:
-      - description: Authentication header as token
-        in: header
-        name: Authentication
-        required: true
-        type: string
-      - description: ID for page
-        in: query
-        name: id
-        required: true
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/model.Page'
-            type: array
-      summary: Gets all pages from ID
-      tags:
-      - Page
   /v1/project/{id}:
     delete:
       consumes:
@@ -525,33 +552,6 @@ paths:
       summary: Updates a product by ID
       tags:
       - Page
-  /v1/projects/{id}:
-    get:
-      consumes:
-      - application/json
-      parameters:
-      - description: Authentication header as token
-        in: header
-        name: Authentication
-        required: true
-        type: string
-      - description: ID for project
-        in: query
-        name: id
-        required: true
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/model.Project'
-            type: array
-      summary: Gets projects by account ID
-      tags:
-      - Project
   /v1/signup/{uid}:
     post:
       consumes:
