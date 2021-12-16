@@ -474,7 +474,7 @@ paths:
         required: true
         type: string
       - in: formData
-        name: account_id
+        name: id
         type: integer
       - in: formData
         name: title
@@ -507,7 +507,7 @@ paths:
         required: true
         type: string
       - in: formData
-        name: account_id
+        name: id
         type: integer
       - in: formData
         name: title

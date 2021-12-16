@@ -632,7 +632,7 @@ var doc = `{
                     },
                     {
                         "type": "integer",
-                        "name": "account_id",
+                        "name": "id",
                         "in": "formData"
                     },
                     {
@@ -675,7 +675,7 @@ var doc = `{
                     },
                     {
                         "type": "integer",
-                        "name": "account_id",
+                        "name": "id",
                         "in": "formData"
                     },
                     {
